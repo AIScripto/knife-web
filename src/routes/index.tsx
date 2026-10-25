@@ -311,9 +311,9 @@ function SiteHeader({
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-card/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-6">
-        {/* Left: Mobile Toggle & Brand Logo */}
-        <div className="flex items-center gap-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6">
+        {/* Left: Mobile Toggle & Clean Non-overflowing Logo */}
+        <div className="flex items-center gap-4 shrink-0">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
@@ -322,23 +322,28 @@ function SiteHeader({
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          <a href="/" className="flex flex-col items-start leading-none group">
-            <span className="font-display text-xl sm:text-2xl tracking-[0.2em] font-semibold text-foreground group-hover:text-primary transition-colors">
-              WHITE HILLS
-            </span>
-            <span className="eyebrow mt-1 text-[0.55rem] text-primary tracking-[0.35em]">
-              Damascus Atelier · California
-            </span>
+          <a href="/" className="flex items-center gap-3 group shrink-0">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/40 bg-primary/10 text-primary transition-transform group-hover:scale-105 shadow-sm">
+              <Flame className="h-5 w-5" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-display text-lg sm:text-xl font-bold tracking-[0.16em] leading-tight text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
+                WHITE HILLS
+              </span>
+              <span className="eyebrow text-[0.55rem] text-primary tracking-[0.22em] leading-tight whitespace-nowrap">
+                Damascus Atelier
+              </span>
+            </div>
           </a>
         </div>
 
-        {/* Center: Desktop Navigation */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        {/* Center: Desktop Navigation centered across available space */}
+        <nav className="hidden items-center justify-center gap-6 xl:gap-8 lg:flex flex-1 px-4">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="eyebrow text-xs text-muted-foreground transition-colors hover:text-primary relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              className="eyebrow text-xs text-muted-foreground transition-colors hover:text-primary relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-primary after:transition-all hover:after:w-full whitespace-nowrap"
             >
               {item.label}
             </button>
@@ -346,7 +351,7 @@ function SiteHeader({
         </nav>
 
         {/* Right: Actions (Theme switcher, Search, Cart) */}
-        <div className="flex items-center gap-3.5 sm:gap-4">
+        <div className="flex items-center gap-3 shrink-0">
           <HeaderThemeSwitcher />
 
           <button
@@ -403,21 +408,22 @@ function Hero({ onExplore }: { onExplore: () => void }) {
   const { themeMeta } = useTheme();
 
   return (
-    <section className="relative min-h-[88vh] overflow-hidden flex items-center">
+    <section className="relative min-h-[85vh] overflow-hidden flex items-center justify-center">
       {/* Background Blade Photograph */}
       <img
         src={heroImage}
         alt="Hand-forged Damascus steel knife resting on obsidian"
-        className="absolute inset-0 h-full w-full object-cover object-right"
+        className="absolute inset-0 h-full w-full object-cover object-center"
         width={1920}
         height={912}
       />
 
-      {/* Theme-Adaptive Gradient Overlays */}
+      {/* Theme-Adaptive Gradient Overlays & Vignette */}
       <div
         className="absolute inset-0 transition-all duration-700 pointer-events-none"
         style={{
-          background: `linear-gradient(90deg, var(--hero-overlay-from) 0%, var(--hero-overlay-via) 60%, var(--hero-overlay-to) 100%)`,
+          background: `radial-gradient(circle at center, var(--hero-overlay-from) 0%, var(--hero-overlay-via) 65%, var(--hero-overlay-from) 100%)`,
+          opacity: 0.88,
         }}
       />
       <div
@@ -427,23 +433,24 @@ function Hero({ onExplore }: { onExplore: () => void }) {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-center px-6 py-24">
+      <div className="relative mx-auto flex min-h-[85vh] max-w-4xl flex-col items-center justify-center px-6 py-20 text-center">
         <Reveal>
-          <p className="eyebrow animate-ember flex items-center gap-3 text-primary">
-            <span className="hairline w-12" />
+          <p className="eyebrow animate-ember mx-auto flex items-center justify-center gap-3 text-primary">
+            <span className="hairline w-8 sm:w-16" />
             Hand-Forged in California · {themeMeta.name} Mode
+            <span className="hairline w-8 sm:w-16" />
           </p>
         </Reveal>
 
         <Reveal delay={100}>
-          <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="font-display mt-6 text-4xl leading-[1.08] text-foreground sm:text-6xl lg:text-7xl font-medium">
             Steel That
-            <span className="damascus-text block font-medium">Remembers Water</span>
+            <span className="damascus-text block font-semibold">Remembers Water</span>
           </h1>
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-2xl text-base sm:text-lg font-light leading-relaxed text-muted-foreground mx-auto">
             Every blade leaves our California forge with hundreds of folded layers of
             high-carbon Damascus steel, an individually contoured natural handle, and an edge proven
             at the anvil.
@@ -451,7 +458,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
         </Reveal>
 
         <Reveal delay={300}>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={onExplore}
               className="group ember-glow inline-flex items-center gap-3 rounded-sm bg-primary px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase text-primary-foreground shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.99]"
@@ -464,7 +471,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
                 const el = document.getElementById("metallurgy-section");
                 el?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center gap-3 rounded-sm border border-border bg-card/60 px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase text-foreground backdrop-blur transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-3 rounded-sm border border-border bg-card/70 px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase text-foreground backdrop-blur transition-colors hover:border-primary hover:text-primary"
             >
               The Damascus Metallurgy
             </button>
@@ -473,7 +480,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
 
         {/* Live Trust Metrics */}
         <Reveal delay={400}>
-          <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-border pt-8">
+          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-4 border-t border-border pt-8 w-full max-w-3xl mx-auto">
             {trustPoints.map(({ icon: Icon, label }) => (
               <span
                 key={label}
@@ -938,12 +945,19 @@ function SiteFooter({ onSelectCategory }: { onSelectCategory: (id: string) => vo
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <span className="font-display text-xl tracking-[0.18em] font-semibold text-foreground">
-            WHITE HILLS
-          </span>
-          <span className="eyebrow mt-1 block text-[0.55rem] text-primary">
-            Damascus Atelier · California
-          </span>
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/40 bg-primary/10 text-primary">
+              <Flame className="h-5 w-5" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="font-display text-lg sm:text-xl font-bold tracking-[0.16em] leading-tight text-foreground whitespace-nowrap">
+                WHITE HILLS
+              </span>
+              <span className="eyebrow text-[0.55rem] text-primary tracking-[0.22em] leading-tight whitespace-nowrap">
+                Damascus Atelier
+              </span>
+            </div>
+          </div>
           <p className="mt-4 max-w-xs text-xs font-light leading-relaxed text-muted-foreground">
             Hand-forged Damascus steel pocket knives, hunting knives and axes. Hand-crafted with
             genuine stag and exotic hardwoods.
