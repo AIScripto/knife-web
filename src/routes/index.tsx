@@ -209,38 +209,33 @@ function AnnouncementBar() {
   const [currOpen, setCurrOpen] = useState(false);
 
   return (
-    <div className="relative overflow-hidden border-b border-border bg-card">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 text-xs text-muted-foreground">
-        {/* Continuous Marquee on Left / Center */}
-        <div className="flex-1 overflow-hidden whitespace-nowrap mr-4">
-          <div className="animate-marquee flex w-max">
-            {[0, 1].map((copy) => (
-              <div key={copy} className="flex items-center gap-10 pr-10">
-                {[
-                  "Welcome privilege: 15% off first piece — code ATELIER15",
-                  "1,700+ verified 5-star collector reviews",
-                  "Dispatched fast from California, USA",
-                  "30-day hassle-free returns & lifetime craft warranty",
-                  "100% hand-folded Damascus metallurgy",
-                ].map((text) => (
-                  <span
-                    key={text}
-                    className="eyebrow flex items-center gap-2.5 text-[0.62rem] text-muted-foreground"
-                  >
-                    <span className="text-primary">◆</span>
-                    {text}
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
+    <div className="relative border-b border-border bg-card/95 py-2 px-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-center relative">
+        {/* Centered Announcement Elements */}
+        <div className="flex items-center justify-center gap-4 sm:gap-6 text-center text-xs">
+          <span className="eyebrow flex items-center gap-2 text-[0.62rem] text-muted-foreground">
+            <span className="text-primary font-bold">◆</span>
+            15% Off First Piece: <strong className="text-primary font-semibold">ATELIER15</strong>
+          </span>
+          <span className="hidden md:flex items-center gap-2 eyebrow text-[0.62rem] text-muted-foreground">
+            <span className="text-primary font-bold">◆</span>
+            1,700+ Verified 5-Star Reviews
+          </span>
+          <span className="hidden sm:flex items-center gap-2 eyebrow text-[0.62rem] text-muted-foreground">
+            <span className="text-primary font-bold">◆</span>
+            Dispatched Fast From California, USA
+          </span>
+          <span className="hidden lg:flex items-center gap-2 eyebrow text-[0.62rem] text-muted-foreground">
+            <span className="text-primary font-bold">◆</span>
+            30-Day Hassle-Free Returns
+          </span>
         </div>
 
-        {/* Currency Selector */}
-        <div className="relative shrink-0 hidden sm:block">
+        {/* Currency Selector (pinned to right so announcement stays centered) */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden sm:block">
           <button
             onClick={() => setCurrOpen(!currOpen)}
-            className="flex items-center gap-1.5 rounded px-2 py-0.5 text-[0.68rem] font-medium uppercase tracking-wider text-muted-foreground hover:text-foreground"
+            className="flex items-center gap-1.5 rounded px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wider text-muted-foreground hover:text-foreground"
           >
             <Globe className="h-3 w-3 text-primary" />
             <span>{currency}</span>
@@ -322,15 +317,15 @@ function SiteHeader({
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          <a href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/40 bg-primary/10 text-primary transition-transform group-hover:scale-105 shadow-sm">
-              <Flame className="h-5 w-5" />
+          <a href="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary/40 bg-primary/10 text-primary transition-transform group-hover:scale-105 shadow-sm">
+              <Flame className="h-4 w-4" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-display text-lg sm:text-xl font-bold tracking-[0.16em] leading-tight text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
+              <span className="font-display text-base sm:text-lg font-bold tracking-[0.14em] leading-tight text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
                 WHITE HILLS
               </span>
-              <span className="eyebrow text-[0.55rem] text-primary tracking-[0.22em] leading-tight whitespace-nowrap">
+              <span className="eyebrow text-[0.52rem] text-primary tracking-[0.18em] leading-tight whitespace-nowrap">
                 Damascus Atelier
               </span>
             </div>
