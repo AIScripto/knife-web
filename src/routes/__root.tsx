@@ -124,8 +124,9 @@ function RootShell({ children }: { children: ReactNode }) {
             __html: `(function(){
               try {
                 var t = localStorage.getItem('white-hills-atelier-theme') || 'obsidian';
+                if (t === 'nordic') t = 'light';
                 document.documentElement.setAttribute('data-theme', t);
-                if (t === 'nordic') {
+                if (t === 'light') {
                   document.documentElement.classList.remove('dark');
                 } else {
                   document.documentElement.classList.add('dark');

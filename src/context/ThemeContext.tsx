@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-export type ThemeId = "obsidian" | "silver" | "nordic" | "imperial";
+export type ThemeId = "obsidian" | "light" | "silver" | "imperial";
 
 export interface ThemeMeta {
   id: ThemeId;
@@ -14,13 +14,22 @@ export interface ThemeMeta {
 
 export const THEMES: ThemeMeta[] = [
   {
+    id: "light",
+    name: "Daylight Atelier",
+    tagline: "Sunlit alabaster ivory & saddle leather",
+    isDark: false,
+    accentColor: "#93532b",
+    bgPreview: "#faf7f2",
+    badge: "Light Theme",
+  },
+  {
     id: "obsidian",
     name: "Obsidian Forge",
     tagline: "Midnight forge & glowing ember copper",
     isDark: true,
     accentColor: "#e67e22",
     bgPreview: "#17181f",
-    badge: "Signature",
+    badge: "Dark Atelier",
   },
   {
     id: "silver",
@@ -29,16 +38,7 @@ export const THEMES: ThemeMeta[] = [
     isDark: true,
     accentColor: "#cbd5e1",
     bgPreview: "#161b22",
-    badge: "Steel Precision",
-  },
-  {
-    id: "nordic",
-    name: "Nordic Frost",
-    tagline: "Sunlit alabaster ivory & saddle leather",
-    isDark: false,
-    accentColor: "#93532b",
-    bgPreview: "#faf7f2",
-    badge: "Light Luxury",
+    badge: "Steel Dark",
   },
   {
     id: "imperial",
@@ -47,7 +47,7 @@ export const THEMES: ThemeMeta[] = [
     isDark: true,
     accentColor: "#d4af37",
     bgPreview: "#200b11",
-    badge: "Royal Temper",
+    badge: "Royal Dark",
   },
 ];
 
@@ -55,6 +55,8 @@ interface ThemeContextType {
   theme: ThemeId;
   themeMeta: ThemeMeta;
   setTheme: (theme: ThemeId) => void;
+  toggleLightDark: () => void;
+  isDark: boolean;
   availableThemes: ThemeMeta[];
 }
 
@@ -68,10 +70,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY) as ThemeId | null;
+      let stored = localStorage.getItem(STORAGE_KEY) as ThemeId | "nordic" | null;
+      if (stored === "nordic") stored = "light";
       if (stored && THEMES.some((t) => t.id === stored)) {
-        setThemeState(stored);
-        applyTheme(stored);
+        setThemeState(stored as ThemeId);
+        applyTheme(stored as ThemeId);
       } else {
         applyTheme("obsidian");
       }
@@ -106,9 +109,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     try {
       localStorage.setItem(STORAGE_KEY, newTheme);
     } catch {
-      // ignore local storage restrictions
+      // ignore
     }
     applyTheme(newTheme);
+  };
+
+  const toggleLightDark = () => {
+    const currentMeta = THEMES.find((t) => t.id === theme) || THEMES[0]!;
+    if (currentMeta.isDark) {
+      setTheme("light");
+    } else {
+      setTheme("obsidian");
+    }
   };
 
   const themeMeta = THEMES.find((t) => t.id === theme) || THEMES[0]!;
@@ -119,6 +131,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         theme,
         themeMeta,
         setTheme,
+        toggleLightDark,
+        isDark: themeMeta.isDark,
         availableThemes: THEMES,
       }}
     >

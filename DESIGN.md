@@ -79,8 +79,8 @@ The system features four cohesive multi-theme palettes tailored to luxury knife 
    - Razor-bright platinum foreground (`oklch(0.96 0.005 240)`)
    - Cold liquid chrome and stainless steel accents (`oklch(0.88 0.03 235)` / `#cbd5e1`)
 
-3. **Nordic Frost (Alabaster Ivory — Light Luxury)**:
-   - Warm bone ivory & sunlit atelier background (`oklch(0.975 0.008 75)` / `#faf7f2`)
+3. **Daylight Atelier (Light Theme — Alabaster Ivory)**:
+   - Warm bone ivory & sunlit atelier background (`oklch(0.982 0.006 80)` / `#faf7f2`)
    - Hand-stamped forge ink typography (`oklch(0.18 0.015 50)`)
    - Burnished saddle leather and antique bronze accents (`oklch(0.48 0.125 45)` / `#93532b`)
 

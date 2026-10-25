@@ -7,10 +7,10 @@
 /*
  * White Hills Knives — Damascus Atelier Design System
  * Bespoke Multi-Theme Architectural Tokens (OKLCH Wide Gamut)
- * 1. Obsidian Forge (Default dark, glowing ember copper)
- * 2. Silver Damascus (Liquid steel, titanium graphite)
- * 3. Nordic Frost (Sunlit alabaster ivory, saddle leather)
- * 4. Imperial Damascus (Royal oxblood, 24k burnished gold)
+ * 1. Daylight Atelier (Light Theme - Sunlit ivory & saddle leather)
+ * 2. Obsidian Forge (Default dark - Glowing ember copper)
+ * 3. Silver Damascus (Steel dark - Liquid chromium & platinum)
+ * 4. Imperial Damascus (Royal dark - Oxblood & 24k gold)
  */
 
 @theme inline {
@@ -48,7 +48,7 @@
   --font-sans: "Jost", "Helvetica Neue", sans-serif;
 }
 
-/* ---------------- THEME 1: Obsidian Forge (Signature Default) ---------------- */
+/* ---------------- THEME 1: Obsidian Forge (Signature Dark) ---------------- */
 :root,
 [data-theme="obsidian"] {
   --radius: 0.5rem;
@@ -86,7 +86,45 @@
   --hero-overlay-to: transparent;
 }
 
-/* ---------------- THEME 2: Silver Damascus (Cold Steel & Chromium) ---------------- */
+/* ---------------- THEME 2: Daylight Atelier (Light Theme) ---------------- */
+[data-theme="light"],
+[data-theme="nordic"] {
+  --radius: 0.5rem;
+  --background: oklch(0.982 0.006 80);
+  --foreground: oklch(0.18 0.015 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.015 50);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.015 50);
+  --primary: oklch(0.48 0.125 45);
+  --primary-foreground: oklch(0.99 0.002 85);
+  --secondary: oklch(0.94 0.008 80);
+  --secondary-foreground: oklch(0.18 0.015 50);
+  --muted: oklch(0.95 0.006 85);
+  --muted-foreground: oklch(0.44 0.015 60);
+  --accent: oklch(0.92 0.015 75);
+  --accent-foreground: oklch(0.18 0.015 50);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.20 0.015 50 / 12%);
+  --input: oklch(0.20 0.015 50 / 16%);
+  --ring: oklch(0.48 0.125 45 / 40%);
+  --ember: oklch(0.52 0.13 48);
+  --ivory: oklch(0.18 0.015 50);
+  --obsidian: oklch(0.982 0.006 80);
+  --obsidian-raised: oklch(0.94 0.008 80);
+  --shadow-ember: 0 10px 40px -12px oklch(0.48 0.125 45 / 20%);
+  --shadow-card: 0 12px 32px -8px rgba(45, 30, 20, 0.08);
+  --damascus-text-start: oklch(0.22 0.02 50);
+  --damascus-text-mid: oklch(0.48 0.125 45);
+  --damascus-text-alt: oklch(0.38 0.09 50);
+  --damascus-text-end: oklch(0.52 0.13 48);
+  --hero-overlay-from: oklch(0.982 0.006 80 / 96%);
+  --hero-overlay-via: oklch(0.982 0.006 80 / 84%);
+  --hero-overlay-to: oklch(0.982 0.006 80 / 25%);
+}
+
+/* ---------------- THEME 3: Silver Damascus (Cold Steel Dark) ---------------- */
 [data-theme="silver"] {
   --radius: 0.5rem;
   --background: oklch(0.15 0.008 240);
@@ -123,44 +161,7 @@
   --hero-overlay-to: transparent;
 }
 
-/* ---------------- THEME 3: Nordic Frost (Light Luxury Alabaster) ---------------- */
-[data-theme="nordic"] {
-  --radius: 0.5rem;
-  --background: oklch(0.975 0.008 75);
-  --foreground: oklch(0.18 0.015 50);
-  --card: oklch(0.995 0.004 80);
-  --card-foreground: oklch(0.18 0.015 50);
-  --popover: oklch(0.995 0.004 80);
-  --popover-foreground: oklch(0.18 0.015 50);
-  --primary: oklch(0.48 0.125 45);
-  --primary-foreground: oklch(0.98 0.005 80);
-  --secondary: oklch(0.93 0.01 75);
-  --secondary-foreground: oklch(0.18 0.015 50);
-  --muted: oklch(0.94 0.008 75);
-  --muted-foreground: oklch(0.46 0.015 60);
-  --accent: oklch(0.91 0.02 65);
-  --accent-foreground: oklch(0.18 0.015 50);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.20 0.015 50 / 12%);
-  --input: oklch(0.20 0.015 50 / 16%);
-  --ring: oklch(0.48 0.125 45 / 40%);
-  --ember: oklch(0.52 0.13 48);
-  --ivory: oklch(0.18 0.015 50);
-  --obsidian: oklch(0.975 0.008 75);
-  --obsidian-raised: oklch(0.94 0.01 75);
-  --shadow-ember: 0 10px 40px -12px oklch(0.48 0.125 45 / 20%);
-  --shadow-card: 0 16px 36px -12px rgba(45, 30, 20, 0.09);
-  --damascus-text-start: oklch(0.22 0.02 50);
-  --damascus-text-mid: oklch(0.48 0.125 45);
-  --damascus-text-alt: oklch(0.38 0.09 50);
-  --damascus-text-end: oklch(0.52 0.13 48);
-  --hero-overlay-from: oklch(0.975 0.008 75 / 96%);
-  --hero-overlay-via: oklch(0.975 0.008 75 / 80%);
-  --hero-overlay-to: oklch(0.975 0.008 75 / 20%);
-}
-
-/* ---------------- THEME 4: Imperial Damascus (Royal Oxblood & 24k Gold) ---------------- */
+/* ---------------- THEME 4: Imperial Damascus (Royal Dark) ---------------- */
 [data-theme="imperial"] {
   --radius: 0.5rem;
   --background: oklch(0.14 0.032 15);
