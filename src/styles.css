@@ -1,0 +1,342 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * White Hills Knives — Damascus Atelier Design System
+ * Bespoke Multi-Theme Architectural Tokens (OKLCH Wide Gamut)
+ * 1. Obsidian Forge (Default dark, glowing ember copper)
+ * 2. Silver Damascus (Liquid steel, titanium graphite)
+ * 3. Nordic Frost (Sunlit alabaster ivory, saddle leather)
+ * 4. Imperial Damascus (Royal oxblood, 24k burnished gold)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ember: var(--ember);
+  --color-ivory: var(--ivory);
+  --color-obsidian: var(--obsidian);
+  --color-obsidian-raised: var(--obsidian-raised);
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-sans: "Jost", "Helvetica Neue", sans-serif;
+}
+
+/* ---------------- THEME 1: Obsidian Forge (Signature Default) ---------------- */
+:root,
+[data-theme="obsidian"] {
+  --radius: 0.5rem;
+  --background: oklch(0.135 0.01 260);
+  --foreground: oklch(0.94 0.012 85);
+  --card: oklch(0.175 0.012 260);
+  --card-foreground: oklch(0.94 0.012 85);
+  --popover: oklch(0.16 0.012 260);
+  --popover-foreground: oklch(0.94 0.012 85);
+  --primary: oklch(0.74 0.145 56);
+  --primary-foreground: oklch(0.14 0.01 60);
+  --secondary: oklch(0.22 0.012 260);
+  --secondary-foreground: oklch(0.94 0.012 85);
+  --muted: oklch(0.20 0.01 260);
+  --muted-foreground: oklch(0.68 0.018 80);
+  --accent: oklch(0.26 0.02 56);
+  --accent-foreground: oklch(0.94 0.012 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.94 0.012 85 / 12%);
+  --input: oklch(0.94 0.012 85 / 16%);
+  --ring: oklch(0.74 0.145 56 / 50%);
+  --ember: oklch(0.78 0.16 62);
+  --ivory: oklch(0.94 0.012 85);
+  --obsidian: oklch(0.135 0.01 260);
+  --obsidian-raised: oklch(0.175 0.012 260);
+  --shadow-ember: 0 10px 40px -12px oklch(0.74 0.145 56 / 45%);
+  --shadow-card: 0 24px 48px -24px oklch(0 0 0 / 80%);
+  --damascus-text-start: oklch(0.98 0.01 85);
+  --damascus-text-mid: oklch(0.74 0.145 56);
+  --damascus-text-alt: oklch(0.88 0.08 70);
+  --damascus-text-end: oklch(0.78 0.16 62);
+  --hero-overlay-from: oklch(0.135 0.01 260);
+  --hero-overlay-via: oklch(0.135 0.01 260 / 85%);
+  --hero-overlay-to: transparent;
+}
+
+/* ---------------- THEME 2: Silver Damascus (Cold Steel & Chromium) ---------------- */
+[data-theme="silver"] {
+  --radius: 0.5rem;
+  --background: oklch(0.15 0.008 240);
+  --foreground: oklch(0.96 0.005 240);
+  --card: oklch(0.19 0.01 240);
+  --card-foreground: oklch(0.96 0.005 240);
+  --popover: oklch(0.175 0.01 240);
+  --popover-foreground: oklch(0.96 0.005 240);
+  --primary: oklch(0.88 0.03 235);
+  --primary-foreground: oklch(0.12 0.01 240);
+  --secondary: oklch(0.24 0.012 240);
+  --secondary-foreground: oklch(0.96 0.005 240);
+  --muted: oklch(0.22 0.01 240);
+  --muted-foreground: oklch(0.72 0.012 240);
+  --accent: oklch(0.28 0.015 235);
+  --accent-foreground: oklch(0.96 0.005 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.92 0.01 240 / 14%);
+  --input: oklch(0.92 0.01 240 / 18%);
+  --ring: oklch(0.88 0.03 235 / 50%);
+  --ember: oklch(0.85 0.04 230);
+  --ivory: oklch(0.96 0.005 240);
+  --obsidian: oklch(0.15 0.008 240);
+  --obsidian-raised: oklch(0.19 0.01 240);
+  --shadow-ember: 0 10px 40px -12px oklch(0.88 0.03 235 / 35%);
+  --shadow-card: 0 24px 48px -24px oklch(0 0 0 / 70%);
+  --damascus-text-start: oklch(0.98 0.005 240);
+  --damascus-text-mid: oklch(0.88 0.03 235);
+  --damascus-text-alt: oklch(0.75 0.02 240);
+  --damascus-text-end: oklch(0.95 0.01 240);
+  --hero-overlay-from: oklch(0.15 0.008 240);
+  --hero-overlay-via: oklch(0.15 0.008 240 / 85%);
+  --hero-overlay-to: transparent;
+}
+
+/* ---------------- THEME 3: Nordic Frost (Light Luxury Alabaster) ---------------- */
+[data-theme="nordic"] {
+  --radius: 0.5rem;
+  --background: oklch(0.975 0.008 75);
+  --foreground: oklch(0.18 0.015 50);
+  --card: oklch(0.995 0.004 80);
+  --card-foreground: oklch(0.18 0.015 50);
+  --popover: oklch(0.995 0.004 80);
+  --popover-foreground: oklch(0.18 0.015 50);
+  --primary: oklch(0.48 0.125 45);
+  --primary-foreground: oklch(0.98 0.005 80);
+  --secondary: oklch(0.93 0.01 75);
+  --secondary-foreground: oklch(0.18 0.015 50);
+  --muted: oklch(0.94 0.008 75);
+  --muted-foreground: oklch(0.46 0.015 60);
+  --accent: oklch(0.91 0.02 65);
+  --accent-foreground: oklch(0.18 0.015 50);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.20 0.015 50 / 12%);
+  --input: oklch(0.20 0.015 50 / 16%);
+  --ring: oklch(0.48 0.125 45 / 40%);
+  --ember: oklch(0.52 0.13 48);
+  --ivory: oklch(0.18 0.015 50);
+  --obsidian: oklch(0.975 0.008 75);
+  --obsidian-raised: oklch(0.94 0.01 75);
+  --shadow-ember: 0 10px 40px -12px oklch(0.48 0.125 45 / 20%);
+  --shadow-card: 0 16px 36px -12px rgba(45, 30, 20, 0.09);
+  --damascus-text-start: oklch(0.22 0.02 50);
+  --damascus-text-mid: oklch(0.48 0.125 45);
+  --damascus-text-alt: oklch(0.38 0.09 50);
+  --damascus-text-end: oklch(0.52 0.13 48);
+  --hero-overlay-from: oklch(0.975 0.008 75 / 96%);
+  --hero-overlay-via: oklch(0.975 0.008 75 / 80%);
+  --hero-overlay-to: oklch(0.975 0.008 75 / 20%);
+}
+
+/* ---------------- THEME 4: Imperial Damascus (Royal Oxblood & 24k Gold) ---------------- */
+[data-theme="imperial"] {
+  --radius: 0.5rem;
+  --background: oklch(0.14 0.032 15);
+  --foreground: oklch(0.95 0.02 85);
+  --card: oklch(0.18 0.038 18);
+  --card-foreground: oklch(0.95 0.02 85);
+  --popover: oklch(0.165 0.035 16);
+  --popover-foreground: oklch(0.95 0.02 85);
+  --primary: oklch(0.80 0.155 82);
+  --primary-foreground: oklch(0.14 0.03 20);
+  --secondary: oklch(0.23 0.035 18);
+  --secondary-foreground: oklch(0.95 0.02 85);
+  --muted: oklch(0.21 0.028 16);
+  --muted-foreground: oklch(0.72 0.03 75);
+  --accent: oklch(0.27 0.045 25);
+  --accent-foreground: oklch(0.95 0.02 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.80 0.155 82 / 16%);
+  --input: oklch(0.80 0.155 82 / 20%);
+  --ring: oklch(0.80 0.155 82 / 50%);
+  --ember: oklch(0.82 0.16 75);
+  --ivory: oklch(0.95 0.02 85);
+  --obsidian: oklch(0.14 0.032 15);
+  --obsidian-raised: oklch(0.18 0.038 18);
+  --shadow-ember: 0 10px 40px -12px oklch(0.80 0.155 82 / 45%);
+  --shadow-card: 0 24px 48px -24px oklch(0 0 0 / 80%);
+  --damascus-text-start: oklch(0.98 0.02 85);
+  --damascus-text-mid: oklch(0.80 0.155 82);
+  --damascus-text-alt: oklch(0.90 0.10 75);
+  --damascus-text-end: oklch(0.84 0.16 78);
+  --hero-overlay-from: oklch(0.14 0.032 15);
+  --hero-overlay-via: oklch(0.14 0.032 15 / 85%);
+  --hero-overlay-to: transparent;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Seamless smooth transitions when changing themes */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease, box-shadow 0.4s ease !important;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 35%, transparent);
+    color: var(--color-foreground);
+  }
+}
+
+/* Damascus water-pattern gradient text */
+@utility damascus-text {
+  background: linear-gradient(
+    100deg,
+    var(--damascus-text-start) 0%,
+    var(--damascus-text-mid) 35%,
+    var(--damascus-text-alt) 55%,
+    var(--damascus-text-mid) 75%,
+    var(--damascus-text-end) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+@utility hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--primary) 50%, transparent),
+    transparent
+  );
+}
+
+@utility ember-glow {
+  box-shadow: var(--shadow-ember);
+}
+
+@utility card-obsidian {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+@keyframes ember-drift {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.04);
+  }
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-ember {
+  animation: ember-drift 5s ease-in-out infinite;
+}
+
+@utility animate-marquee {
+  animation: marquee-slide 38s linear infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility rise-in {
+  animation: rise-in 1s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+@utility is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .rise-in,
+  .animate-marquee,
+  .animate-ember {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
