@@ -403,49 +403,55 @@ function Hero({ onExplore }: { onExplore: () => void }) {
   const { themeMeta } = useTheme();
 
   return (
-    <section className="relative min-h-[85vh] overflow-hidden flex items-center justify-center">
-      {/* Background Blade Photograph */}
+    <section className="relative min-h-[85vh] overflow-hidden flex items-center">
+      {/* Background Blade Photograph - anchored to right to showcase the stag handle & forge blade */}
       <img
         src={heroImage}
         alt="Hand-forged Damascus steel knife resting on obsidian"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-right lg:object-[80%_center]"
         width={1920}
         height={912}
       />
 
-      {/* Theme-Adaptive Gradient Overlays & Vignette */}
+      {/* Left-to-right reading gradient: solid/dark behind text, transparent over blade on right */}
       <div
         className="absolute inset-0 transition-all duration-700 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at center, var(--hero-overlay-from) 0%, var(--hero-overlay-via) 65%, var(--hero-overlay-from) 100%)`,
-          opacity: 0.88,
+          background: `linear-gradient(90deg, var(--hero-overlay-from) 0%, var(--hero-overlay-via) 48%, transparent 85%)`,
         }}
       />
+      {/* Vertical subtle vignette for header & bottom transitions */}
       <div
         className="absolute inset-0 transition-all duration-700 pointer-events-none"
         style={{
-          background: `linear-gradient(180deg, var(--hero-overlay-from) 0%, transparent 40%, var(--hero-overlay-from) 100%)`,
+          background: `linear-gradient(180deg, var(--hero-overlay-from) 0%, transparent 25%, transparent 75%, var(--hero-overlay-from) 100%)`,
+        }}
+      />
+      {/* Radial soft glow on the blade area */}
+      <div
+        className="absolute inset-0 transition-all duration-700 pointer-events-none opacity-40"
+        style={{
+          background: `radial-gradient(circle at 75% 50%, transparent 0%, var(--hero-overlay-from) 90%)`,
         }}
       />
 
-      <div className="relative mx-auto flex min-h-[85vh] max-w-4xl flex-col items-center justify-center px-6 py-20 text-center">
+      <div className="relative mx-auto flex min-h-[85vh] max-w-7xl w-full flex-col justify-center items-start px-6 py-20 text-left">
         <Reveal>
-          <p className="eyebrow animate-ember mx-auto flex items-center justify-center gap-3 text-primary">
-            <span className="hairline w-8 sm:w-16" />
+          <p className="eyebrow animate-ember flex items-center gap-3 text-primary">
+            <span className="hairline w-8 sm:w-12" />
             Hand-Forged in California · {themeMeta.name} Mode
-            <span className="hairline w-8 sm:w-16" />
           </p>
         </Reveal>
 
         <Reveal delay={100}>
-          <h1 className="font-display mt-6 text-4xl leading-[1.08] text-foreground sm:text-6xl lg:text-7xl font-medium">
+          <h1 className="font-display mt-6 max-w-2xl text-4xl leading-[1.08] text-foreground sm:text-6xl lg:text-7xl font-medium tracking-tight">
             Steel That
             <span className="damascus-text block font-semibold">Remembers Water</span>
           </h1>
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="mt-6 max-w-2xl text-base sm:text-lg font-light leading-relaxed text-muted-foreground mx-auto">
+          <p className="mt-6 max-w-xl text-base sm:text-lg font-light leading-relaxed text-muted-foreground">
             Every blade leaves our California forge with hundreds of folded layers of
             high-carbon Damascus steel, an individually contoured natural handle, and an edge proven
             at the anvil.
@@ -453,7 +459,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
         </Reveal>
 
         <Reveal delay={300}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <button
               onClick={onExplore}
               className="group ember-glow inline-flex items-center gap-3 rounded-sm bg-primary px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase text-primary-foreground shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.99]"
@@ -473,16 +479,16 @@ function Hero({ onExplore }: { onExplore: () => void }) {
           </div>
         </Reveal>
 
-        {/* Live Trust Metrics */}
+        {/* Live Trust Metrics - Left-aligned architectural grid */}
         <Reveal delay={400}>
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-4 border-t border-border pt-8 w-full max-w-3xl mx-auto">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-border pt-8 w-full max-w-3xl">
             {trustPoints.map(({ icon: Icon, label }) => (
               <span
                 key={label}
                 className="flex items-center gap-2.5 text-xs text-muted-foreground font-medium"
               >
-                <Icon className="h-4 w-4 text-primary" />
-                {label}
+                <Icon className="h-4 w-4 text-primary shrink-0" />
+                <span>{label}</span>
               </span>
             ))}
           </div>

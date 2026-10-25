@@ -105,8 +105,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "alternate icon", href: "/favicon.ico", type: "image/x-icon" },
+      {
+        rel: "icon",
+        href: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMzE0MWEiLz48cmVjdCB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjYxIiBoZWlnaHQ9IjYxIiByeD0iMTIuNSIgc3Ryb2tlPSIjZDk3NzA2IiBzdHJva2Utb3BhY2l0eT0iMC40IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjIyIiBmaWxsPSIjZDk3NzA2IiBmaWxsLW9wYWNpdHk9IjAuMTUiLz48ZyB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMzIgMzIpIj48cGF0aCBkPSJNMzIgOCBDMzIgOCAzOCAxOCAzOCAzNCBMMjYgMzQgQzI2IDE4IDMyIDggMzIgOCBaIiBmaWxsPSIjY2JkN2UxIiBzdHJva2U9IiNmOGZhZmMiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0yOCAxNiBRMzIgMTggMzYgMTYgTTI3IDIxIFEzMiAyNCAzNyAyMSBNMjcgMjYgUTMyIDI5IDM3IDI2IE0yNi41IDMwIFEzMiAzMyAzNy41IDMwIiBzdHJva2U9IiM2NDc0OGIiIHN0cm9rZS13aWR0aD0iMC44IiBmaWxsPSJub25lIi8+PHJlY3QgeD0iMjMiIHk9IjM0IiB3aWR0aD0iMTgiIGhlaWdodD0iNCIgcng9IjEuNSIgZmlsbD0iI2Q5NzcwNiIgc3Ryb2tlPSIjNzgzNTBmIiBzdHJva2Utd2lkdGg9IjAuOCIvPjxwYXRoIGQ9Ik0yNiAzOCBMMzggMzggTDM2IDU2IEwyOCA1NiBaIiBmaWxsPSIjOTI0MDBlIiBzdHJva2U9IiM0NTFhMDMiIHN0cm9rZS13aWR0aD0iMSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iNDMiIHI9IjEuNSIgZmlsbD0iI2ZlZjNjNyIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iNTAiIHI9IjEuNSIgZmlsbD0iI2ZlZjNjNyIvPjxwYXRoIGQ9Ik0yNyA1NiBMMzcgNTYgTDM1IDU5IEwyOSA1OSBaIiBmaWxsPSIjZDk3NzA2Ii8+PC9nPjwvc3ZnPg==",
+        type: "image/svg+xml",
+      },
+      { rel: "alternate icon", href: "/favicon.png", type: "image/png" },
+      { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
@@ -121,6 +126,11 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMzE0MWEiLz48cmVjdCB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjYxIiBoZWlnaHQ9IjYxIiByeD0iMTIuNSIgc3Ryb2tlPSIjZDk3NzA2IiBzdHJva2Utb3BhY2l0eT0iMC40IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjIyIiBmaWxsPSIjZDk3NzA2IiBmaWxsLW9wYWNpdHk9IjAuMTUiLz48ZyB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMzIgMzIpIj48cGF0aCBkPSJNMzIgOCBDMzIgOCAzOCAxOCAzOCAzNCBMMjYgMzQgQzI2IDE4IDMyIDggMzIgOCBaIiBmaWxsPSIjY2JkN2UxIiBzdHJva2U9IiNmOGZhZmMiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0yOCAxNiBRMzIgMTggMzYgMTYgTTI3IDIxIFEzMiAyNCAzNyAyMSBNMjcgMjYgUTMyIDI5IDM3IDI2IE0yNi41IDMwIFEzMiAzMyAzNy41IDMwIiBzdHJva2U9IiM2NDc0OGIiIHN0cm9rZS13aWR0aD0iMC44IiBmaWxsPSJub25lIi8+PHJlY3QgeD0iMjMiIHk9IjM0IiB3aWR0aD0iMTgiIGhlaWdodD0iNCIgcng9IjEuNSIgZmlsbD0iI2Q5NzcwNiIgc3Ryb2tlPSIjNzgzNTBmIiBzdHJva2Utd2lkdGg9IjAuOCIvPjxwYXRoIGQ9Ik0yNiAzOCBMMzggMzggTDM2IDU2IEwyOCA1NiBaIiBmaWxsPSIjOTI0MDBlIiBzdHJva2U9IiM0NTFhMDMiIHN0cm9rZS13aWR0aD0iMSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iNDMiIHI9IjEuNSIgZmlsbD0iI2ZlZjNjNyIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iNTAiIHI9IjEuNSIgZmlsbD0iI2ZlZjNjNyIvPjxwYXRoIGQ9Ik0yNyA1NiBMMzcgNTYgTDM1IDU5IEwyOSA1OSBaIiBmaWxsPSIjZDk3NzA2Ii8+PC9nPjwvc3ZnPg=="
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){
@@ -133,6 +143,16 @@ function RootShell({ children }: { children: ReactNode }) {
                 } else {
                   document.documentElement.classList.add('dark');
                 }
+
+                // Force browser tab to adopt the Damascus blade icon instantly
+                var bladeDataUri = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMzE0MWEiLz48cmVjdCB4PSIxLjUiIHk9IjEuNSIgd2lkdGg9IjYxIiBoZWlnaHQ9IjYxIiByeD0iMTIuNSIgc3Ryb2tlPSIjZDk3NzA2IiBzdHJva2Utb3BhY2l0eT0iMC40IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iMzIiIHI9IjIyIiBmaWxsPSIjZDk3NzA2IiBmaWxsLW9wYWNpdHk9IjAuMTUiLz48ZyB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMzIgMzIpIj48cGF0aCBkPSJNMzIgOCBDMzIgOCAzOCAxOCAzOCAzNCBMMjYgMzQgQzI2IDE4IDMyIDggMzIgOCBaIiBmaWxsPSIjY2JkN2UxIiBzdHJva2U9IiNmOGZhZmMiIHN0cm9rZS13aWR0aD0iMSIvPjxwYXRoIGQ9Ik0yOCAxNiBRMzIgMTggMzYgMTYgTTI3IDIxIFEzMiAyNCAzNyAyMSBNMjcgMjYgUTMyIDI5IDM3IDI2IE0yNi41IDMwIFEzMiAzMyAzNy41IDMwIiBzdHJva2U9IiM2NDc0OGIiIHN0cm9rZS13aWR0aD0iMC44IiBmaWxsPSJub25lIi8+PHJlY3QgeD0iMjMiIHk9IjM0IiB3aWR0aD0iMTgiIGhlaWdodD0iNCIgcng9IjEuNSIgZmlsbD0iI2Q5NzcwNiIgc3Ryb2tlPSIjNzgzNTBmIiBzdHJva2Utd2lkdGg9IjAuOCIvPjxwYXRoIGQ9Ik0yNiAzOCBMMzggMzggTDM2IDU2IEwyOCA1NiBaIiBmaWxsPSIjOTI0MDBlIiBzdHJva2U9IiM0NTFhMDMiIHN0cm9rZS13aWR0aD0iMSIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iNDMiIHI9IjEuNSIgZmlsbD0iI2ZlZjNjNyIvPjxjaXJjbGUgY3g9IjMyIiBjeT0iNTAiIHI9IjEuNSIgZmlsbD0iI2ZlZjNjNyIvPjxwYXRoIGQ9Ik0yNyA1NiBMMzcgNTYgTDM1IDU5IEwyOSA1OSBaIiBmaWxsPSIjZDk3NzA2Ii8+PC9nPjwvc3ZnPg==';
+                var links = document.querySelectorAll("link[rel*='icon']");
+                links.forEach(function(l){ if (l.parentNode) l.parentNode.removeChild(l); });
+                var nl = document.createElement('link');
+                nl.rel = 'icon';
+                nl.type = 'image/svg+xml';
+                nl.href = bladeDataUri;
+                document.head.appendChild(nl);
               } catch(e){}
             })();`,
           }}
